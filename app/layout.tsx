@@ -1,4 +1,5 @@
 import type React from "react"
+import { Suspense } from "react"
 import type { Metadata } from "next"
 import { Geist, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
@@ -33,7 +34,9 @@ export default function RootLayout({
         <div className="min-h-screen bg-background">
           <div className="border-b border-border">
             <div className="mx-auto">
-              <RepositoryHeader />
+              <Suspense fallback={null}>
+                <RepositoryHeader />
+              </Suspense>
             </div>
           </div>
           {children}
